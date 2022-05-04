@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Poppins&display=swap');
+
+body {
+    background: linear-gradient(90deg, #161717d8 0%, #161717d8 100%), url(../img/bg.jpg);
+    /* background-image: url(../img/bg.webp); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* font-size: 100%; */
+    font-family: "Dosis", sans-serif;
+}
+
+h1 {
+    font-size: 5rem;
+    color: aliceblue;
+    margin-bottom: 0.7rem;
+}
+
+h2 {
+    font-size: 4.2rem;
+    margin-bottom: 4rem;
+    color: aliceblue;
+}
+
+#home p {
+    font-size: 1.5rem;
+    color: rgb(30, 198, 204);
+    margin-bottom: 3rem;
+}
+
+h3 {
+    font-size: 1.7rem;
+    color: rgb(194, 252, 255);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hide {
+    display: none!important;
+}
+
+.fade-anim {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#home h2 {
+    color: #bdbdbd;
+    font-size: 1.9rem;
+}
+
+.btn {
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    width: 20rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #d0dee2;
+    background: linear-gradient(90deg, #488091 0%, #519183 100%);
+
+    transition: width 0.4s;
+
+    border: 0;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #477989 0%, #4e897c 100%);
+}
+
+.tips {
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+
+.return {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: whitesmoke;
+    /* margin-bottom: 30px; */
+    position: absolute;
+    bottom: 7%;
+    background-color: #165060;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+#home .btn:hover {
+    padding: 2rem 0;
+    width: 28rem;
+}
+
+#subject-list {
+    display: flex;
+    flex-flow: row;
+}
+
+.subject-item {
+    display: flex;
+    flex-flow: column;
+    margin: 0 10px;
+}
+
+.subject-item button {
+    border: 0;
+    border-radius: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.subject-item span {
+    text-align: center;
+    display: block;
+    position: relative;
+    bottom: 50%;
+
+    transition: bottom 0.3s ease;
+}
+
+.subject-item:hover span {
+    bottom: 0%;
+}
+
+

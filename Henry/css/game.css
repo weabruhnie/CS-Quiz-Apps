@@ -1,0 +1,156 @@
+#header {
+    position: absolute;
+    /* text-align: center; */
+    width: 100vw;
+    padding: 0.5rem 0;
+}
+
+#header h2 {
+    font-size: 3rem;
+}
+
+#header span {
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #64ceff ;
+}
+
+#question {
+    color: rgb(187, 236, 241);
+    font-size: 3.3rem;
+    margin-bottom: 2rem;
+}
+
+.info-title {
+    color: rgb(222, 252, 255);
+    font-weight: bold;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.info-rules-title {
+    color: rgb(222, 252, 255);
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 3.2rem;
+}
+
+.info-list {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-list .info {
+    color: aliceblue;
+    font-size: 1.7rem;
+}
+
+.info-list .info span {
+    color: rgb(98, 177, 255);
+    font-weight: bold;
+}
+
+#game {
+    width: 90%;
+    /* min-width: 80rem; */
+    /* height: 100vh; */
+}
+
+.choice-item {
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #3f6875 0%, #5d737d 100%);
+    padding: 0.7rem 0;
+    border-radius: 12px;
+}
+
+.choice-item .choice-text {
+    color: rgb(252, 252, 252);
+}
+
+.choice-item .choice-span {
+    padding: 0 2rem;
+    color: rgb(176, 241, 255);
+}
+
+.choice-item:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transform: transform 100ms;
+    background: linear-gradient(90deg, #385b66 0%, #5b717a 100%);
+}
+
+#ui {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ui-span, .ui-main-text {   
+    text-align: center;
+}
+
+.ui-span {
+    color: #9edee9;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.ui-main-text {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#progressBar {
+    width: 20rem;
+    height: 2rem;
+    border: 0.2rem solid #91b1bb;
+    margin: 0.8rem 0;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+#progressBarFill {
+    height: 100%;
+    background-color: #5eb6d1;
+    width: 0%;
+    border-radius: 1rem;
+
+    transition: width 0.5s ease-in-out;
+}
+
+#continue {
+    padding: 0.8rem 0;
+    margin-top: 1rem;
+    
+}
+
+.correct {
+    background: linear-gradient(90deg, #509769 0%, #31783b 100%);
+}
+
+.incorrect {
+    background: linear-gradient(90deg, #975050 0%, #783131 100%);
+}
+
+
+.disabledChoice {
+    pointer-events: none;
+}
+
+#results {
+    text-align: center;
+}
+
+#game-footer {
+    display: flex;
+    flex-direction: row;
+}
+
+#tip-message {
+    font-size: 2rem;
+    margin: auto;
+    color: aliceblue;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/game.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.css" integrity="sha384-A3N+UgNMKg9+LRsC2HUE0ECxFY7qhztVFORxHQZEPm7lnog2poqmm7CQ91wSEnBc" crossorigin="anonymous">
+    
+
+    <title>Henry | Quiz App | Game</title>
+</head>
+<body>
+    <section id="header">
+        <h2 class="text-center">The Tringonometry Quiz. <span>(Developed by CEO Henry)</span></h2>
+    </section>
+    
+
+    <section class="container">
+        <a class="return" href="index.html">Go back to Home?</a>
+
+        <section id="subject-pick" class="flex-column flex-center">
+            
+
+            <h2 id="subject-title" class="fade-anim">Please pick a subject for the quiz:</h2>
+            <div id="subject-list" class="fade-anim">
+                <div class="subject-item" id="algebra2">
+                    <h3 class="highscore">High Score: 0</h3>
+
+                    <button class="btn">Algebra 2</button>
+
+                    <span class="tips">One of Mr Tri's tiring subject. Algebra gang!</span>
+                </div>
+                
+                <!-- <div class="subject-item" id="physics">
+                    <h3 class="highscore">High Score: 0</h3>
+
+                    <button class="btn">Physics</button>
+
+                    <span class="tips">Thank god I'm in Mr Bill's class.</span>
+                </div> -->
+
+                <div class="subject-item" id="cs">
+                    <h3 class="highscore">High Score: 0</h3>
+
+                    <button class="btn">Computer Science</button>
+
+                    <span class="tips">console.log("Hello world from CEO")</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="instructions" class="flex-column flex-center hide fade-anim">
+            <div class="info-title"><span>Basics: How to play the Quiz</span></div>
+
+            <h3>The game will provide you many different answers in each question, and only one of them is the correct of them. Can you answer all of them perfectly?</h3>
+
+            <div class="info-rules-title"><span>Rules to note when playing the quiz:</span></div>
+
+            <div class="info-list">
+                <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+                <div class="info">2. Once you select your answer, it can't be undone.</div>
+                <div class="info">3. You can't select any option once time goes off.</div>
+                <div class="info">4. You will only get points if you answered correctly.</div>
+            </div>
+            <button id="understand" class="btn">I understand!</button>
+        </section>
+
+        <section id="game" class="justify-center flex-column hide fade-anim">
+            <section id="ui">
+                <div class="ui-item">
+                    <p id="progressNum" class="ui-span">
+                        Question 1
+                    </p>
+                    <div id="progressBar">
+                        <div id="progressBarFill"></div>
+                    </div>
+                </div>              
+
+                <div class="ui-item">
+                    <p class="ui-span">
+                        Score:
+                    </p>
+                    <h1 class="ui-main-text" id="score">
+                        1
+                    </h1>
+                </div>
+
+                <div class="ui-item">
+                    <p class="ui-span">
+                        Time Left:
+                    </p>
+                    <h1 class="ui-main-text" id="timer">
+                        15
+                    </h1>
+                </div>
+            </section>
+
+            <section id="question">What is the answer?</section>
+
+            <div class="choice-item">
+                <p class="choice-span">A</p>
+                <p class="choice-text" data-choicenum="1">Answer 1</p>
+            </div>
+            <div class="choice-item">
+                <p class="choice-span">B</p>
+                <p class="choice-text" data-choicenum="2">Answer 2</p>
+            </div>
+            <div class="choice-item">
+                <p class="choice-span">C</p>
+                <p class="choice-text" data-choicenum="3">Answer 3</p>
+            </div>
+            <div class="choice-item">
+                <p class="choice-span">D</p>
+                <p class="choice-text" data-choicenum="4">Answer 4</p>
+            </div>
+
+            <section id="game-footer">
+                <div id="continue" class="btn fade-anim">
+                    Continue
+                </div>
+
+                <div id="tip-message"></div>
+            </section>           
+        </section>
+
+        <section id="results" class="flex-center flex-column hide fade-anim">
+            <h1 id="result-congrat">Nice job!</h1>
+            <h3 id="result-score">You were able to score 2 points!</h3>
+        </section>
+    </section>
+
+    <!-- IMPORTANT FOR SETUP QUESTIONS IN JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.js" integrity="sha384-D0gipC03W+lifpletIVjX+11DUvrzNAMhVux0JrrAMt9Ufgu9HcPdS5GxZSDmNxx" crossorigin="anonymous"></script>   
+
+    <script src="questions/setup.js"></script> 
+
+    <script src="questions/algebra2.js"></script>
+    <script src="questions/cs.js"></script>
+
+    <script src="scripts/game.js"></script>
+</body>
+</html>
