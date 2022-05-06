@@ -140,7 +140,7 @@ function quizOver(){
     document.querySelector(".quiz-over").classList.add("show")
     correctAnswersSpan.innerHTML = score;
     totalQuestionsSpan2.innerHTML = questions.length
-    percentageSpan.innerHTML=Math.round((score/questions.length)*100) + "%"
+    percentageSpan.innerHTML= Math.round((score/questions.length)*100) + "%"
 }
 
 function tryAgain(){

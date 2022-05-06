@@ -1,12 +1,14 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
-    background: linear-gradient(90deg, rgb(219, 109, 215), 50%, rgb(212, 134, 231));
+body {
+    background: linear-gradient(90deg, rgb(118, 86, 117), 50%, rgb(124, 73, 135));
     /* background-size: cover; */
+    font-family: "Karla", sans-serif;
 }
 
 h2 {
     font-size: 3rem ;
-    color: rgb(68, 26, 47);
+    color: rgb(255, 255, 255);
 }
 
 * {
@@ -19,15 +21,22 @@ h2 {
     display: none!important;
 }
 
+.highscore {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
 .quiz-container {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
+    
+    width: 100vw;
+    height: 100vh;
     max-width: 80rem;
+    
     margin: 0 auto;
     padding: 2rem;
 }
@@ -39,29 +48,135 @@ h2 {
 }
 
 .subject-list button {
-    background-color: bisque;
+    background-color: rgb(104, 97, 147);
+    color: whitesmoke;
     padding: 2rem 4rem;
     font-size: 1.8rem;
-    border: 0;
-    border-radius: 0.1rem;
+    font-weight: bold;
+    border: 3px solid rgb(143, 110, 152);
+    border-radius: 1rem;
     margin: 10px;
+
+    transition: transform 0.3s ease;
 }
 
 .subject-list button:hover {
     cursor: pointer;
-    background-color: rgb(218, 197, 171);
-    transform: scale(1.04);
+    background-color: rgb(97, 81, 118);
+    border: 3px solid rgb(142, 100, 153);
+    transform: scale(1.05);
+}
+
+.rules-contain {
+    background-color: rgba(16, 16, 16, 0.362);
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100vw;
+    height: 100vh;
+    
+    margin: 0 auto;
+    padding: 2rem;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.2s ease;
+}
+
+.rules-contain .rules-box {
+    background-color: rgb(194, 161, 185);
+    width: 80vw;
+    height: 70vh;
+    max-width: 30rem;
+
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rules-box h1 {
+    color: rgb(58, 13, 66);
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.rules-box ol {
+    width: 80%;
+}
+
+.rules-box ol li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.rules-box ol li span {
+    color: rgb(109, 0, 128);
+    font-weight: bold;
+}
+
+.rules-box button {
+    background-color: rgb(113, 70, 134);
+    color: whitesmoke;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    border: 2px solid rgb(143, 110, 152);
+    border-radius: 1rem;
+    margin: 10px;
+
+    transition: background-color 0.3s ease;
+}
+
+.rules-box button:hover {
+    cursor: pointer;
+    background-color: rgb(97, 81, 118);
 }
 
 .game-box {
-    background-color: rgb(255, 231, 250);
+    background-color: rgb(104, 64, 94);
     width: 90vw;
-    height: 40vw;
     max-width: 80rem;
 
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+#timer-bar {
+    position: relative;
+    background-color: rgb(236, 185, 229);
+    height: 10px;
+    width: 100%;
+    border-radius: 1rem;
+
+    transition: width 0.3s ease-out;
+}
+
+#quit {
+    background-color: rgb(162, 18, 128);
+    color: #fff;
+    width: 10vw;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    border: 0;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+
+    transition: background-color 0.3s;
+}
+
+#quit:hover {
+    cursor: pointer;
+    background-color: rgb(203, 77, 173);
 }
 
 .hud {
@@ -79,9 +194,47 @@ h2 {
 }
 
 .question-hud .choices {
-    width: 90%;
-    height: 50vh;
-    background-color: aliceblue;
+    width: 93%;
+    padding-bottom: 2rem;
+}
+
+.question-hud .choice-item {
+    background-color: rgb(219, 187, 217);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 1rem;
+
+    margin-bottom: 1rem;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+.question-hud .choice-item:hover {
+    cursor: pointer;
+    background-color: rgb(176, 147, 179);
+}
+
+.question-hud .choice-item h2 {
+    color: rgb(80, 67, 82);
+    margin-right: 1rem;
+}
+
+.question-hud .choice-item p {
+    font-size: 2rem;
+}
+
+.question-hud .choice-item.correct {
+    background-color: rgb(115, 255, 122);
+}
+
+.question-hud .choice-item.incorrect {
+    background-color: rgb(255, 115, 115);
+}
+
+.question-hud .choice-item.disabled {
+    pointer-events: none;
 }
 
 .hud-item {
@@ -90,6 +243,116 @@ h2 {
 }
 
 #question-ask {
+    color: rgb(248, 248, 248);
     font-size: 3.4rem;
     font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+#continue {
+    pointer-events: none;
+    opacity: 0.6;
+    border: 0;
+    border-radius: 1rem;
+    background-color: rgb(233, 174, 232);
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    margin-bottom: 2rem;
+
+    cursor: pointer;
+
+    transition: opacity 0.3s linear;
+}
+
+#continue.visible {
+    pointer-events:all;
+    opacity: 1;
+}
+
+.result-contain {
+    background-color: rgba(0, 0, 0, 0.5) ;
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100vw;
+    height: 100vh;
+    
+    margin: 0 auto;
+    padding: 2rem;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.2s ease;
+}
+
+.result-contain.visible, .rules-contain.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.result-contain.visible .results-box {
+    transform: scale(1);
+}
+
+.results-box {
+    background-color: rgb(148, 16, 110);
+    width: 40vw;
+    height: 60vh;
+    max-width: 80rem;
+
+    padding: 1rem;
+
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(0.9);
+
+    transition: transform 0.3s ease;
+}
+
+.fa-trophy {
+    color: rgb(255, 227, 113);
+    font-size: 2.5rem;
+}
+
+#scoreResult {
+    color: aliceblue;
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+#scoreResultTxt {
+    font-size: 2.5rem;
+    color: rgb(249, 217, 247);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.results-box button {
+    width: 50%;
+    border: 0;
+    border-radius: 10px;
+    color: rgb(255, 246, 254);
+    font-size: 1.6rem;
+    background-color: rgb(104, 79, 107);
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    transition: all 0.2s ease;
+}
+
+.results-box button:hover {
+    cursor: pointer;
+    background-color: rgb(122, 91, 125);
 }

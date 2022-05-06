@@ -7,24 +7,46 @@
 
     <link rel="stylesheet" href="style.css">
     
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/9becc02ff3.js" crossorigin="anonymous"></script>
+
+    <title>Quiz Application</title>
 </head>
 <body>
     <section class="quiz-container subject-select">
-        <h2>What quiz you want play?</h2>
+        <h2>Quiz for Mr. Tri (please pick topic)</h2>
         <div class="subject-list">
             <button id="alg2">
                 Algebra 2
+                <p class="highscore">Highscore: 0</p>
             </button>
 
             <button id="cs">
                 Computer Science
+                <p class="highscore">Highscore: 0</p>
             </button>
+        </div>
+    </section>
+
+    <section class="rules-contain">
+        <div class="rules-box">
+            <h1>How to play:</h1>
+            <ol>
+                <li>You only have <span>15 seconds</span> to pick an answer</li>
+                <li>You can only pick an answer once.</li>
+                <li>Scores will not be saved if you quit during game</li>
+            </ol>
+
+            <button id="start">Start playing</button>
+            <button id="return-home">Return to home</button>
         </div>
     </section>
 
     <section class="quiz-container main-game hidden">
         <div class="game-box">
+            <div id="timer-bar"></div>
+
+            <button id="quit">Quit Quiz</button>
+
             <section class="hud">
                 <div class="hud-item">
                     <h2 id="progress">Question 1</h2>
@@ -45,14 +67,45 @@
                 </div>
     
                 <div class="choices">
-                    <div class="choice-item" data-choice="1"></div>
-                    <div class="choice-item" data-choice="2"></div>
-                    <div class="choice-item" data-choice="3"></div>
-                    <div class="choice-item" data-choice="4"></div>
+                    <div class="choice-item" data-choice="0">
+                        <h2>A)</h2>
+                        <p>Choice 1</p>
+                    </div>
+                    <div class="choice-item" data-choice="1">
+                        <h2>B)</h2>
+                        <p>Choice 2</p>
+                    </div>
+                    <div class="choice-item" data-choice="2">
+                        <h2>C)</h2>
+                        <p>Choice 3</p>
+                    </div>
+                    <div class="choice-item" data-choice="3">
+                        <h2>D)</h2>
+                        <p>Choice 4</p>
+                    </div>
                 </div>
+
+                <button id="continue">Continue</button>
             </section>
         </div>
     </section>
+
+    <section class="result-contain">
+        <div class="results-box">
+            <i class="fa-solid fa-trophy"></i>
+            <div id="scoreResult">Nice try!</div>
+
+            <div id="scoreResultTxt">
+                Your score: 6/10
+            </div>
+
+            <button id="retry">Retry quiz</button>
+            <button id="return">Return home</button>
+        </div>
+    </section>
+
+    <script src="questions/alg2.js"></script>
+    <script src="questions/cs.js"></script>
 
     <script src="main.js"></script>
 </body>
