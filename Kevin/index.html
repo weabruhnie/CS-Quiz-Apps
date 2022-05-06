@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <section class="quiz-container subject-select">
+        <h2>What quiz you want play?</h2>
+        <div class="subject-list">
+            <button id="alg2">
+                Algebra 2
+            </button>
+
+            <button id="cs">
+                Computer Science
+            </button>
+        </div>
+    </section>
+
+    <section class="quiz-container main-game hidden">
+        <div class="game-box">
+            <section class="hud">
+                <div class="hud-item">
+                    <h2 id="progress">Question 1</h2>
+                </div>
+        
+                <div class="hud-item">
+                    <h2 id="score">Score: 0</h2>
+                </div>
+
+                <div class="hud-item">
+                    <h2 id="timer">Time Left: 15</h2>
+                </div>
+            </section>
+
+            <section class="question-hud">
+                <div id="question-ask">
+                    What is the name?
+                </div>
+    
+                <div class="choices">
+                    <div class="choice-item" data-choice="1"></div>
+                    <div class="choice-item" data-choice="2"></div>
+                    <div class="choice-item" data-choice="3"></div>
+                    <div class="choice-item" data-choice="4"></div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

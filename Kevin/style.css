@@ -1,0 +1,95 @@
+body {
+
+    background: linear-gradient(90deg, rgb(219, 109, 215), 50%, rgb(212, 134, 231));
+    /* background-size: cover; */
+}
+
+h2 {
+    font-size: 3rem ;
+    color: rgb(68, 26, 47);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.subject-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.subject-list button {
+    background-color: bisque;
+    padding: 2rem 4rem;
+    font-size: 1.8rem;
+    border: 0;
+    border-radius: 0.1rem;
+    margin: 10px;
+}
+
+.subject-list button:hover {
+    cursor: pointer;
+    background-color: rgb(218, 197, 171);
+    transform: scale(1.04);
+}
+
+.game-box {
+    background-color: rgb(255, 231, 250);
+    width: 90vw;
+    height: 40vw;
+    max-width: 80rem;
+
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.hud {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.question-hud {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-hud .choices {
+    width: 90%;
+    height: 50vh;
+    background-color: aliceblue;
+}
+
+.hud-item {
+    margin: 10px;
+    padding: 1rem 2rem;
+}
+
+#question-ask {
+    font-size: 3.4rem;
+    font-weight: bold;
+}
