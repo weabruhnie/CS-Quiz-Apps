@@ -9,9 +9,13 @@ body{
     max-width: 700px;
     min-height: 500px;
     background-color: white;
-    margin: 30px auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
     border-radius: 8px;
     padding: 30px;
+    width: 100%;
 }
 
 .question-number {
@@ -162,12 +166,21 @@ body{
 .pick-option {
     display: flex;
     justify-content: center;
+    align-items: center;
     
+}
+
+.pick-option div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0.7rem;
 }
 
 .pick-option button {
     padding: 1rem 1rem;
-    margin: 0.7rem;
     border: 0;
     background: #315450;
     color: rgb(232, 242, 242);
@@ -178,6 +191,12 @@ body{
 .pick-option button:hover {
     background: #456f6b;
     cursor: pointer;
+}
+
+.pick-option .hs {
+    font-weight: bold;
+    font-size: 1;
+    margin-top: 5px;
 }
 
 .hide {

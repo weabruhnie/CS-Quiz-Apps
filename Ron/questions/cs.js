@@ -3,13 +3,13 @@ const CS_Questions = [
     q: 'How do you call a function named "myFunction"?',
 
     options: [
-      'myFunction()',
-      'call myFunction()',
-      'call function myFunction()',
-      'all of the above'
+      'myFunction()', // 0
+      'call myFunction()', // 1
+      'call function myFunction()', // 2
+      'all of the above' // 3
     ],
 
-    answer: 0
+    answer: 0 // use index above to pick correct answer!
   },
   {
     q: 'How to write an IF statemente in JavaScript?',

@@ -11,9 +11,20 @@ const correctAnswersSpan = document.querySelector(".correct-answers")
 const totalQuestionsSpan2 = document.querySelector(".total-questions2")
 const percentageSpan = document.querySelector(".percentage")
 
-const csButton = document.querySelector("#cs")
+const csButton = document.querySelector("#cs button")
+const alg2Button = document.querySelector("#algebra2 button")
+
+const highScore = document.querySelectorAll(".hs")
+
+const timerText = document.querySelector("#timer")
 
 const tryAgainButton = document.querySelector("#again")
+
+highScore.forEach(element => { // getting highscore for each subject
+    let parent = element.parentNode
+    let hsData = localStorage.getItem(parent.id + "HS") || 0
+    element.innerHTML = "High Score: " + hsData
+});
 
 // let index;
 let index = 0;
@@ -27,6 +38,7 @@ const opt3 = document.querySelector(".option3")
 const opt4 = document.querySelector(".option4")
 
 let questions = []
+let topicId;
 
 csButton.onclick = function() {
     pickContain.classList.add("hide")
@@ -34,20 +46,42 @@ csButton.onclick = function() {
     questions = CS_Questions
 
     totalQuestionsSpan.innerHTML = questions.length
+    topicId = csButton.parentNode.id
 
     load();
     answersTracker();
 }
 
-function timer() {
+alg2Button.onclick = function() {
+    pickContain.classList.add("hide")
+    mainContain.classList.remove("hide")
+    questions = alg2_Questions
 
+    totalQuestionsSpan.innerHTML = questions.length
+    topicId = alg2Button.parentNode.id
+
+    load();
+    answersTracker();
 }
 
-function load()
+let timeInt;
+function timer() {
+    timeLeft -= 1
+
+    timerText.textContent = "Time left: " + timeLeft
+
+    if (timeLeft <= 0) {
+        check()
+    }
+}
+
+function load() {
     timeLeft = 15;
-    setInterval(timer, 1000)
-    console.log(questions)
-    console.log(index)
+    timerText.textContent = "Time left: " + timeLeft
+
+    timeInt = setInterval(timer, 1000)
+    // console.log(questions)
+    // console.log(index)
     questionNumberSpan.innerHTML = index + 1
     question.innerHTML = questions[index].q;
     opt1.innerHTML = questions[index].options[0]    
@@ -58,17 +92,21 @@ function load()
 
 //Check if selected answer is correct or wrong
 function check(element){
-    console.log(index)
-    console.log(questions[index])
-    if(element.id == questions[index].answer){
-        element.className="correct"
-        updateAnswersTracker("correct")
-        score++
-    }
-    else {
-        element.className="wrong"
+    clearInterval(timeInt)
+    
+    if (element != undefined) {
+        if(element.id == questions[index].answer){
+            element.className="correct"
+            updateAnswersTracker("correct")
+            score++
+        } else {
+            element.className="wrong"
+            updateAnswersTracker("wrong")
+        }
+    } else {
         updateAnswersTracker("wrong")
     }
+    
     disableClick();
 }
 
@@ -132,6 +170,11 @@ function quizOver(){
     correctAnswersSpan.innerHTML = score;
     totalQuestionsSpan2.innerHTML = questions.length
     percentageSpan.innerHTML= Math.round((score/questions.length)*100) + "%"
+
+    let hsData = localStorage.getItem(topicId + "HS") || -1 // get previous high score to compare
+    if (score > hsData) {
+        localStorage.setItem(topicId + "HS", score)
+    }
 }
 
 function tryAgain(){

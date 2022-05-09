@@ -13,13 +13,19 @@
         <h2>Hello! Choose a quiz topic:</h2>
 
         <div class="pick-option">
-            <button id="algebra2">
-                Algebra 2
-            </button>
+            <div id="algebra2">
+                <button>
+                    Algebra 2
+                </button>
+                <p class="hs">High Score: 0e</p>
+            </div>
 
-            <button id="cs">
-                Computer Science
-            </button>
+            <div id="cs">
+                <button>
+                    Computer Science
+                </button>
+                <p class="hs">High Score: 0</p>
+            </div>
         </div>
     </section>
 
@@ -59,7 +65,11 @@
         </div>
     </section>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.css" integrity="sha384-A3N+UgNMKg9+LRsC2HUE0ECxFY7qhztVFORxHQZEPm7lnog2poqmm7CQ91wSEnBc" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.js" integrity="sha384-D0gipC03W+lifpletIVjX+11DUvrzNAMhVux0JrrAMt9Ufgu9HcPdS5GxZSDmNxx" crossorigin="anonymous"></script>
+
     <!-- load questions in! -->
+    <script src="questions/alg2.js"></script>
     <script src="questions/cs.js"></script>
 
     <script src="script.js"></script>
