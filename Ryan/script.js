@@ -12,7 +12,11 @@ const rule_back_btn = rule_wrap.querySelector(".rules-box .back-btn")
 
 const game_wrap = document.querySelector(".game-main-wrap")
 const questionText = game_wrap.querySelector("#questionText")
+const questionMediaImg = game_wrap.querySelector(".media_container")
 const questionChoices = game_wrap.querySelectorAll(".question-choices .choice-item")
+
+const timeCount = document.querySelector(".timer .main-var")
+const scoreCount = document.querySelector(".score .main-var")
 
 start_btn.addEventListener("transitionend", showOptions, false)
 
@@ -69,6 +73,16 @@ rule_continue_btn.onclick = () => {
     makeQuestion()
 }
 
+let timerVar;
+function startTimer() {
+    timeLeft -= 1;
+    timeCount.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+        showAnswers();
+    }
+}
+
 function makeQuestion() {
     // console.log(questions, currentQuestion)
     let qContent = questions[currentQuestion] // get current question through array index
@@ -78,5 +92,24 @@ function makeQuestion() {
     questionChoices.forEach(choice => {
         let choiceMainTxt = choice.querySelector(".choice-text .choice-main-txt")
         choiceMainTxt.textContent = qContent.choices[choice.dataset.index]
+    });
+
+    timeLeft = 15;
+    timeCount.textContent = timeLeft
+
+    timerVar = setInterval(startTimer, 1000)
+}
+
+function optionPicked() {
+
+}
+
+function showAnswers() {
+    clearInterval(timerVar)
+
+    questionChoices.forEach(choice => {
+        if (choice.dataset.index == qContent.answer) {
+            choice.classList.add("correct")
+        }     
     });
 }

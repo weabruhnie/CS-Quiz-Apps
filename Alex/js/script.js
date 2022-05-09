@@ -9,3 +9,4 @@ next.onclick = function() {
         btn.style.pointerEvents = 'all';
     })
 }
+
