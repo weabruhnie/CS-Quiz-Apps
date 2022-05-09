@@ -15,10 +15,11 @@ const csButton = document.querySelector("#cs")
 
 const tryAgainButton = document.querySelector("#again")
 
-let currentIndex;
+// let index;
 let index = 0;
 let answeredQuestions =[]; // array of anwered question indexes
 let score = 0;
+let timeLeft = 15
 
 const opt1 = document.querySelector(".option1")
 const opt2 = document.querySelector(".option2")
@@ -34,23 +35,32 @@ csButton.onclick = function() {
 
     totalQuestionsSpan.innerHTML = questions.length
 
-    randomQuestion();
+    load();
     answersTracker();
 }
 
-function load(){
+function timer() {
+
+}
+
+function load()
+    timeLeft = 15;
+    setInterval(timer, 1000)
+    console.log(questions)
+    console.log(index)
     questionNumberSpan.innerHTML = index + 1
-    question.innerHTML = questions[currentIndex].q;
-    opt1.innerHTML = questions[currentIndex].options[0]    
-    opt2.innerHTML = questions[currentIndex].options[1]
-    opt3.innerHTML = questions[currentIndex].options[2]
-    opt4.innerHTML = questions[currentIndex].options[3]
-    index++
+    question.innerHTML = questions[index].q;
+    opt1.innerHTML = questions[index].options[0]    
+    opt2.innerHTML = questions[index].options[1]
+    opt3.innerHTML = questions[index].options[2]
+    opt4.innerHTML = questions[index].options[3]
 }
 
 //Check if selected answer is correct or wrong
 function check(element){
-    if(element.id == questions[currentIndex].answer){
+    console.log(index)
+    console.log(questions[index])
+    if(element.id == questions[index].answer){
         element.className="correct"
         updateAnswersTracker("correct")
         score++
@@ -68,7 +78,13 @@ function validate(){
         alert("Please select an option")
     }
     else{
-        randomQuestion();
+        index++
+        console.log(index, questions.length)
+        if (index >= questions.length) {
+            quizOver()
+            return;
+        }
+        load();
         enableClick();
     }
 }
@@ -83,7 +99,7 @@ function disableClick(){
     for(let i=0; i<options.length; i++){
         options[i].classList.add("disabled")
 
-        if(options[i].id == questions[currentIndex].answer){
+        if(options[i].id == questions[index].answer){
             options[i].classList.add('correct');
         }
     }
@@ -97,31 +113,6 @@ function enableClick(){
     }
 }
 
-//Function to select a random question
-function randomQuestion(){
-    let randomNumber = Math.floor(Math.random()*questions.length);
-    if(index == questions.length){
-        quizOver();
-    }
-    else{
-        if(answeredQuestions.length > 0){
-            if(answeredQuestions.includes(randomNumber)){
-                randomQuestion();
-            }
-            else {
-                currentIndex = randomNumber;
-                load();
-            }
-        }
-        if(answeredQuestions.length == 0){
-            currentIndex = randomNumber
-            load()
-        }
-        //add the question to list of anwered questions
-        answeredQuestions.push(randomNumber)
-    }
-}
-
 //Set up answers tracker elements
 function answersTracker(){
     for(let i=0; i< questions.length; i++){
@@ -132,7 +123,7 @@ function answersTracker(){
 
 //Update the answers tracker elements
 function updateAnswersTracker(newClass){
-    answersTrackerContainer.children[index -1].classList.add(newClass)
+    answersTrackerContainer.children[index].classList.add(newClass)
 }
 
 //Displays the quiz-over page if quiz is over

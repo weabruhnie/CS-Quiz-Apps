@@ -14,11 +14,20 @@ body{
     padding: 30px;
 }
 
+.question-number {
+    display: flex;
+    justify-content: space-between;
+}
+
 .question-number h3 {
     color:#009788;
     border-bottom: 1px solid #ccc;
     margin: 0;
     padding-bottom: 10px;
+}
+
+#timer {
+    border: 0
 }
 
 
