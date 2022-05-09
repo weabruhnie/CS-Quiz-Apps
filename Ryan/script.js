@@ -11,6 +11,8 @@ const rule_continue_btn = rule_wrap.querySelector(".rules-box .continue-btn")
 const rule_back_btn = rule_wrap.querySelector(".rules-box .back-btn")
 
 const game_wrap = document.querySelector(".game-main-wrap")
+const questionText = game_wrap.querySelector("#questionText")
+const questionChoices = game_wrap.querySelectorAll(".question-choices .choice-item")
 
 start_btn.addEventListener("transitionend", showOptions, false)
 
@@ -43,11 +45,12 @@ let userScore = 0; // assigining user score
 let topic;  // assigining topic name for later saving
 
 algebra_btn.onclick = () => {
-    questions = cs_questions
+    
     showRules()
 }
 
 cs_btn.onclick = () => {
+    questions = cs_questions
     showRules() // show rules function below
 }
 
@@ -67,5 +70,13 @@ rule_continue_btn.onclick = () => {
 }
 
 function makeQuestion() {
+    // console.log(questions, currentQuestion)
     let qContent = questions[currentQuestion] // get current question through array index
+    console.log(qContent)
+    questionText.textContent = qContent.q
+
+    questionChoices.forEach(choice => {
+        let choiceMainTxt = choice.querySelector(".choice-text .choice-main-txt")
+        choiceMainTxt.textContent = qContent.choices[choice.dataset.index]
+    });
 }

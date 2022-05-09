@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/game.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Game Play</title>
+</head>
+
+<body>
+    <div class="info-box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+
+        <div class="buttons">
+            <a href="index.html" class="home-btn btn">Home</a>
+            <div class="continue-btn btn">Continue</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="btn" id="alg2">Algebra 2</div>
+        <div class="btn" id="cs">Computer Science</div>
+        <a href="index.html" id="home" class="btn">Home</a>
+    </div>
+
+    <div class="container game-container">
+        <div id="game" class="justify-center flex-column">
+            <h2 id="quesiton">What is the answer to this questions?</h2>
+            <div class="choice-container">
+                <p class="choice-prefix">A</p>
+                <p class="choice-text">Choice 1</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">B</p>
+                <p class="choice-text">Choice 2</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">C</p>
+                <p class="choice-text">Choice 3</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">D</p>
+                <p class="choice-text">Choice 4</p>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.css" integrity="sha384-A3N+UgNMKg9+LRsC2HUE0ECxFY7qhztVFORxHQZEPm7lnog2poqmm7CQ91wSEnBc" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.js" integrity="sha384-D0gipC03W+lifpletIVjX+11DUvrzNAMhVux0JrrAMt9Ufgu9HcPdS5GxZSDmNxx" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
