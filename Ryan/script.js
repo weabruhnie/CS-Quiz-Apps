@@ -15,6 +15,8 @@ const questionText = game_wrap.querySelector("#questionText")
 const questionMediaImg = game_wrap.querySelector(".media_container")
 const questionChoices = game_wrap.querySelectorAll(".question-choices .choice-item")
 
+const game_continue_btn = game_wrap.querySelector(".continue-btn")
+
 const timeCount = document.querySelector(".timer .main-var")
 const scoreCount = document.querySelector(".score .main-var")
 
@@ -86,10 +88,14 @@ function startTimer() {
 function makeQuestion() {
     // console.log(questions, currentQuestion)
     let qContent = questions[currentQuestion] // get current question through array index
-    console.log(qContent)
+    // console.log(qContent)
     questionText.textContent = qContent.q
 
     questionChoices.forEach(choice => {
+        choice.classList.remove("disabled")
+        choice.classList.remove("correct")
+        choice.classList.remove("incorrect")
+
         let choiceMainTxt = choice.querySelector(".choice-text .choice-main-txt")
         choiceMainTxt.textContent = qContent.choices[choice.dataset.index]
     });
@@ -100,15 +106,37 @@ function makeQuestion() {
     timerVar = setInterval(startTimer, 1000)
 }
 
-function optionPicked() {
+game_continue_btn.onclick = function() {
+    currentQuestion += 1
 
+    if (currentQuestion > questions.length - 1) {
+        console.log("results")
+    } else {
+        makeQuestion()
+    }
+}
+
+questionChoices.forEach(choice => {
+    choice.onclick = function() {
+        optionPicked(choice)
+    }  
+});
+
+function optionPicked(pickedChoice) {
+    if (pickedChoice.dataset.index != questions[currentQuestion].answer) {
+        pickedChoice.classList.add("incorrect")
+    }
+
+    showAnswers()
 }
 
 function showAnswers() {
     clearInterval(timerVar)
 
     questionChoices.forEach(choice => {
-        if (choice.dataset.index == qContent.answer) {
+        choice.classList.add("disabled")
+
+        if (choice.dataset.index == questions[currentQuestion].answer) {
             choice.classList.add("correct")
         }     
     });

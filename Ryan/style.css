@@ -276,5 +276,13 @@ button:hover {
 }
 
 .correct {
-    background-color: rgb(41, 156, 67);
+    background-color: rgb(41, 156, 67)!important;
+}
+
+.incorrect {
+    background-color: rgb(172, 81, 81)!important;
+}
+
+.disabled {
+    pointer-events: none;
 }
