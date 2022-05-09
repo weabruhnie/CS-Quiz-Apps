@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="home-wrap container">
+        <div class="home-element home-title">
+            <h1>Welcome to APU Quiz App!</h1>
+        </div>
+
+        <div class="home-element start-btn">
+            <button>Start Game</button>
+        </div>
+
+        <div class="home-element subject-options hidden display-none">
+            <div id="algebra" class="subject-option-item">
+                <button>Algebra 2</button>
+            </div>
+            <div id="cs" class="subject-option-item">
+                <button>Computer Science</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="rules container hidden">
+        <div class="rules-box">
+            <h1>Rules of the game</h1>
+            
+            <ol>
+                <li>
+                    <h3>You have 15 seconds to pick an answer</h3>
+                </li>
+                <li>
+                    <h3>You can only pick one answer, so pick correctly.</h3>
+                </li>
+                <li>
+                    <h3>You will lose all point if you leave during quiz</h3>
+                </li>
+            </ol>
+
+            <button class="back-btn">Go Back</button>
+            <button class="continue-btn">Continue</button>
+        </div>
+    </div>
+
+    <div class="game-main-wrap container hidden">
+        <header class="top-content">
+            <div class="question-content">
+                <span id="questionText">
+                    What is your mom
+                </span>
+            </div>
+        </header>
+
+        <div class="details-content">
+            <div class="question-center-content">
+                <div class="media_container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/800px-CSS3_logo_and_wordmark.svg.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="question-choices">
+            <div class="choice-item" data-index="0">
+                
+                <span class="choice-text">
+                    <div class="choice-index">A)</div>
+                    IDK
+                </span>
+            </div>
+            <div class="choice-item" data-index="1">
+                
+                <span class="choice-text">
+                    <div class="choice-index">B)</div>
+                    IDK
+                </span>
+            </div>
+            <div class="choice-item" data-index="2">
+                
+                <span class="choice-text">
+                    <div class="choice-index">C)</div>
+                    IDK
+                </span>
+            </div>
+            <div class="choice-item" data-index="3">
+                
+                <span class="choice-text">
+                    <div class="choice-index">D)</div>
+                    IDK
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

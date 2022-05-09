@@ -2,42 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Quiz App</title>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div class="quiz-container" id="quiz">
-        <div class="quiz-header">
-            <h2 id="question">Question Text</h2>
+    <h1 id="title">Quiz App</h1>
 
-            <ul>
-                <li>
-                    <input type="radio" name="answer" id="a" class="answer">
-                    <label for="a" id="a_text">Question</label>
-                </li>
-                <li>
-                    <input type="radio" name="answer" id="b" class="answer">
-                    <label for="b" id="b_text">Question</label>
-                </li>
-                <li>
-                    <input type="radio" name="answer" id="c" class="answer">
-                    <label for="c" id="c_text">Question</label>
-                </li>
-                <li>
-                    <input type="radio" name="answer" id="d" class="answer">
-                    <label for="d" id="d_text">Question</label>
-                </li>
-            </ul>
+    <div class="subject-container">
+        <h1>Pick a subject for quiz</h1>
+        <div class="options-list">
+            <div class="option-item" id="algebra">
+                <button>Algebra 2</button>
+                <h3 class="hs">High score: 0</h3>
+            </div>
+            <div class="option-item" id="cs">
+                <button>Computer Science</button>
+                <h3 class="hs">High score: 0</h3>
+            </div>
         </div>
-        <button id="submit">Submit</button>
     </div>
 
+    <section class="rules-container hidden">
+        <div class="rules-box">
+            <h1>How to play:</h1>
+            <ol>
+                <li>You only have 15 seconds to pick an answer</li>
+                <li>You can only pick an answer once.</li>
+                <li>
+                    You can skip the question by pressing Next, but you can't go back!
+                </li>
+                <li>Scores will not be saved if you quit during game</li>
+            </ol>
+
+            <button id="start">Start playing</button>
+            <button id="return-home">Return to home</button>
+        </div>
+    </section>
+
+    <!-- quiz-container -->
+    <div id="quiz-container" class="hidden">
+        
+        <!-- question container -->
+        <div class="questions">
+            <div class="quiz-hud">
+                <h2 id="timerTxt">Time Left: 15</h2>
+                <h2 id="scoreTxt">Score: 0</h2>
+            </div>
+
+            <h2 id="question"></h2>
+            <ol type="A">
+                <li class="option" data-index="a"><span id="option0" onclick="calcScore(this)"></span></li>
+                <li class="option" data-index="b"><span id="option1" onclick="calcScore(this)"></span></li>
+                <li class="option" data-index="c"><span id="option2" onclick="calcScore(this)"></span></li>
+                <li class="option" data-index="d"><span id="option3" onclick="calcScore(this)"></span></li>
+            </ol>
+            <h4 id="stat"></h4>
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="next">Next</button>
+        </div>
+
+    </div>
+
+    <!-- scoreboard section -->
+    <div id="scoreboard">
+        <h2 id="score-title">Your Score</h2>
+        <h2 id="score"></h2>
+        <button type="button" id="score-btn" onclick="backToQuiz()">Back to Quiz</button>
+    </div>
+
+    <!-- answers section -->
+    <div id="answerBank">
+        <h2>Answers :</h2>
+        <ol type="1" id="answers">
+
+        </ol>
+        <button type="button" id="score-btn" onclick="backToQuiz()">Back to Quiz</button>
+    </div>
+
+    <!-- javascript file source -->
     <script src="questions/questions_cs.js"></script>
+    <script src="questions/questions_alg.js"></script>
 
     <script src="app.js"></script>
-    
 </body>
 </html>

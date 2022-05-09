@@ -1,63 +1,155 @@
-const quiz = document.getElementById('quiz');
-const answerElements = document.querySelectorAll('.answer');
-const questionElement = document.getElementById('question');
-const aTtext = document.getElementById('a_text'); 
-const bTtext = document.getElementById('b_text'); 
-const cTtext = document.getElementById('c_text'); 
-const dTtext = document.getElementById('d_text'); 
+var question= document.getElementById('question');
+var quizContainer= document.getElementById('quiz-container');
+var scorecard= document.getElementById('scorecard');
+var options = document.querySelectorAll('.option');
+var next= document.querySelector('.next');
+var points= document.getElementById('score');
+var span= document.querySelectorAll('span');
 
-const submitBtn = document.getElementById('submit');
+var subjectContainer = document.querySelector(".subject-container")
+var rulesContainer = document.querySelector(".rules-container")
 
-const quizData = quizData_CS
+var startQuizBtn = document.querySelector("#start")
+var returnBtn = document.querySelector("#return-home")
 
-let currentQuiz = 0;
-let score = 0;
+var buttons = document.querySelectorAll(".subject-container .option-item")
 
-loadQuiz();
+var timerText = document.querySelector("#timerTxt")
+var scoreText = document.querySelector("#scoreTxt")
 
-function loadQuiz() {
+let questionBank = [];
+
+let subject;
+
+buttons.forEach(element => {
+    let highscoreData = localStorage.getItem(element.id + "HS") || 0
     
-    deselectAnswers();
+    let button = element.querySelector("button")
+    let hsText = document.querySelector("#" + element.id + " .hs")
 
-    const currentQuizData = quizData[currentQuiz];
-    questionElement.innerHTML = currentQuizData.question;
-    aTtext.innerHTML = currentQuizData.a;
-    bTtext.innerHTML = currentQuizData.b;
-    cTtext.innerHTML = currentQuizData.c;
-    dTtext.innerHTML = currentQuizData.d;
-}
+    hsText.textContent = "High score: " + highscoreData
 
-function deselectAnswers() {
-    answerElements.forEach(answerEl => answerEl.checked = false);
-}
+    button.onclick = () => {
+        subject = element.id
 
-function getSelected() {
-    let answer;
-    answerElements.forEach(answerEl => {
-        if(answerEl.checked) {
-            answer = answerEl.id;
-        }
-    })
-
-    return answer;
-}
-
-submitBtn.addEventListener('click', () => {
-    const answer = getSelected();
-
-    if(answer) {
-        if(answer == quizData[currentQuiz].correct) {
-            score++;
+        if (element.id == "algebra") {
+            questionBank = quizData_alg
+        } else if (element.id == "cs") {
+            questionBank = quizData_CS
         }
 
-        currentQuiz++;
+        subjectContainer.classList.add("hidden")
+        rulesContainer.classList.remove("hidden")
+    }
+});
 
-        if(currentQuiz < quizData.length) {
-            loadQuiz();
-        } else {
-            quiz.innerHTML = `<h2>You answered ${score}/${quizData.length} questions correctly</h2>
-            <button onClick="location.reload()">Reload</button>
-            `
+startQuizBtn.onclick = () => {
+    rulesContainer.classList.add("hidden")
+    quizContainer.classList.remove("hidden")
+
+    displayQuestion();
+}
+
+returnBtn.onclick = () => {
+    window.location.reload();
+}
+
+var i=0;
+var score= 0;
+
+let timeInt;
+
+function timerFunc() {
+    timeLeft-=1
+    timerText.innerHTML = "Time Left: " + timeLeft
+
+    if (timeLeft <= 0) {
+        getAnswer()
+    }
+}
+
+//function to display questions
+function displayQuestion(){
+    options.forEach(element => {
+        element.classList.remove("disabled");
+        element.classList.remove("wrong");
+        element.classList.remove("correct");
+    });
+
+    timeLeft = 15;
+    timerText.innerHTML = "Time Left: " + timeLeft
+
+    timerInt = setInterval(timerFunc, 1000)
+
+    for(var a=0;a<span.length;a++){
+        span[a].style.background='none';
+    }
+    question.innerHTML= 'Question'+(i+1)+': '+questionBank[i].question;
+    options[0].innerHTML= questionBank[i].a;
+    options[1].innerHTML= questionBank[i].b;
+    options[2].innerHTML= questionBank[i].c;
+    options[3].innerHTML= questionBank[i].d;
+    stat.innerHTML= "Question"+' '+(i+1)+' '+'of'+' '+questionBank.length;
+}
+
+options.forEach(element => {
+    element.onclick = () => {
+        getAnswer(element)
+    }
+});
+
+//function to calculate scores
+function getAnswer(e){
+    options.forEach(element => {
+        element.classList.add("disabled");
+    });
+
+    clearInterval(timerInt)
+
+    if (e != undefined) {
+        if(e.dataset.index == questionBank[i].correct && score<questionBank.length)
+        {
+            score+=1; // plus one
+            scoreText.innerHTML = "Score: " + score
+            e.classList.add("correct");
+        }
+        else{
+            e.classList.add("wrong");
+        }
+    }  
+
+    options.forEach(element => {
+        console.log(element.dataset.index)
+        if (element.dataset.index == questionBank[i].correct) {
+            element.classList.add("correct");
+        }
+    });
+    // setTimeout(nextQuestion,300);
+}
+
+//function to display next question
+function nextQuestion(){
+    if(i<questionBank.length-1)
+    {
+        i+=1;
+        displayQuestion();
+    }
+    else{
+        points.innerHTML= score+ '/'+ questionBank.length;
+        quizContainer.style.display= 'none';
+        scoreboard.style.display= 'block'
+
+        let highscoreData = localStorage.getItem(subject + "HS") || 0
+        if (score > highscoreData) {
+            localStorage.setItem(subject + "HS", score)
         }
     }
-})
+}
+
+//click events to next button
+next.addEventListener('click',nextQuestion);
+
+//Back to Quiz button event
+function backToQuiz(){
+    window.location.reload();
+}

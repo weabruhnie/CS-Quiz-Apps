@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,300&display=swap');
+
+* {
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+
+    font-size: 0.875rem;
+    color: #333333;
+    
+    line-height: 1.25rem;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.display-none {
+    display: none!important;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(242, 242, 242);
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+
+    transition: all 0.3s ease;
+}
+
+.home-wrap {
+    justify-content: center;
+    align-items: center;
+}
+
+.home-wrap .home-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease;
+}
+
+.home-wrap .home-title {
+    top: 40%;
+}
+
+.subject-options {
+    display: flex;
+    flex-direction: row;
+    top: 50%;
+}
+
+.start-btn, .subject-options .subject-option-item {
+    margin: 1rem;
+}
+
+button {
+    font-size: 1.5rem;
+    padding: 1rem;
+    box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
+    border: 0;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+
+    background-color: rgb(34, 96, 188);
+
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(18, 60, 123);
+}
+
+.start-btn {
+    top: 50%;
+}
+
+.disabled-btn {
+    pointer-events: none;
+}
+
+.start-btn button {
+    background-color: rgb(34, 96, 188);
+}
+
+.start-btn button:hover {
+    background-color: rgb(18, 60, 123);
+}
+
+#algebra button {
+    background-color: rgb(47, 108, 59);
+}
+
+#algebra button:hover {
+    background-color: rgb(37, 89, 47);
+}
+
+#cs button {
+    background-color: rgb(74, 110, 125);
+}
+
+#cs button:hover {
+    background-color: rgb(59, 87, 100);
+}
+
+.rules-box {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 15%) 0px 0.125rem 0.25rem 0px;
+    padding: 2rem 4rem;
+    border-radius: 4px;
+}
+
+.rules-box h1 {
+    margin-bottom: 2rem;
+}
+
+.rules-box h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.rules-box ol {
+    margin-bottom: 2rem;
+}
+
+.rules-box .continue-btn {
+    margin-left: 0.5rem;
+}
+
+.top-content {
+    flex: 0 1 auto;
+    padding: 3rem 5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 15%) 0px 0.125rem 0.25rem 0px;
+    z-index: 4;
+    text-align: center;
+}
+
+#questionText {
+    width: 100%;
+    line-height: 1.25;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+.details-content {
+    padding: 0px 0px 0.375rem;
+    margin: 0px auto;
+    flex: 6 1 0%;
+    position: relative;
+    max-height: 50vh;
+}
+
+.question-center-content {
+    display: flex;
+    justify-content: center;
+    flex-basis: 90%;
+    height: 100%;
+}
+
+.media_container {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem 0px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.media_container img {
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.question-choices {
+    padding: 16px;
+    display: flex;
+    flex: 4 1 0%;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: stretch;
+    z-index: 1;
+    justify-content: center;
+}
+
+.question-choices .choice-item {
+    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    overflow: visible;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    width: calc(50% - 2rem);
+    padding: 0.31rem;
+    box-shadow: rgb(0 0 0 / 15%) 0px -0.25rem 0px 0px inset;
+    box-sizing: border-box;
+    min-height: 2.25rem;
+    max-width: 100%;
+    background-color: rgb(51, 92, 136);
+    border-radius: 4px;
+}
+
+.question-choices .choice-item:hover {
+    background-color: rgb(45, 74, 105);
+    cursor: pointer;
+}
+
+.question-choices .choice-item .choice-text { 
+    display: flex;
+    align-items: center;
+    font-size: calc(0.5rem + 2.14667vmin);
+    font-weight: 600;
+    line-height: 1.25;
+    color: aliceblue;
+    text-shadow: rgb(0 0 0 / 25%) 0px 0.125rem 0px, rgb(0 0 0) 0px 0px 0.125rem;
+    padding: 0px 0.3125rem;
+    text-align: left;
+    z-index: 90;
+    flex: 1 0 calc((100% - 128px) - 0.625rem);
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}  
+
+.choice-index {
+    margin-right: 1rem;
+    font-size: 2.2rem;
+}

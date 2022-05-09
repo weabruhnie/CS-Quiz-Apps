@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", sans-serif;
+}
+body{
+    background: linear-gradient(80deg, rgb(51, 54, 58), 20%, rgb(71, 73, 76));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.options-list {
+    display: flex;
+    text-align: center;
+}
+
+.options-list .hs {
+    color: #fff;
+}
+
+#title{
+    text-align: center;
+    padding: 0.8rem 0;
+    font-size: 3rem;
+    color: rgb(113, 212, 237);
+    background: rgb(39, 38, 45);
+}
+.questions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem auto;
+    width: 40vw;
+    padding: 2rem;
+    background: rgb(11, 12, 12);
+    cursor: default;
+    border-radius: 1rem;
+}
+
+.quiz-hud {
+    color: #fff;
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+#question{
+    color: rgb(241, 241, 241);
+    margin-bottom: 1rem;
+}
+
+.subject-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.subject-container h1 {
+    text-align: center;
+    color: #fff;
+}
+
+.subject-container button {
+    padding: 1rem;
+    margin: 0.9rem
+}
+
+.rules-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.rules-box {
+    border-radius: 5px;
+    background-color: rgb(53, 55, 57);
+    padding: 2rem 4rem;
+}
+
+.rules-box h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.rules-box ol {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.option{
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: solid 0.1rem rgb(255, 255, 255);
+    width: 30rem;
+    background: rgb(45, 51, 53);
+    border-radius: 1rem;
+}
+.option:hover{
+    cursor: pointer;
+    color: white;
+    background: rgb(77, 80, 92);
+}
+ol{
+    position: relative;
+    padding: 0 1.5rem;
+    color: rgb(214, 214, 214);
+}
+/* span{
+    display: block;
+    padding: 0.1rem 0.7rem;
+    border-radius: 1rem;
+} */
+#answer{
+    margin-top: 2.5rem;
+}
+#stat{
+    margin-top: 1.5rem;
+    color: rgb(255, 255, 255);
+}
+.buttons{
+    text-align: center;
+}
+button{
+    padding: 0.2rem 1.5rem;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    border-radius: 0.4rem;
+    color: rgb(37, 36, 39);
+    background: rgb(174, 219, 234);
+}
+button:hover {
+    cursor: pointer;
+    color: rgb(203, 202, 205);
+    background: rgb(100, 111, 116);
+}
+button:active{
+    background: lavender;
+}
+#scoreboard,#answerBank{
+    width: 20rem;
+    background: rgba(230,230,250,0.77);
+    padding: 2rem;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: 5rem;
+    display: none;
+}
+#score-title{
+    margin: 1rem 0;
+}
+#score-btn,#check-answer{
+    margin-top: 1rem;
+}
+#score{
+    font-size: 2.5rem;
+}
+#answerBank li{
+    text-align: left;
+    margin-bottom: 0.2rem;
+    font-size: larger;
+}
+#answers{
+    margin-top: 1rem;
+}
+.correct {
+    background-color: rgb(3, 194, 3)!important;
+}
+
+.wrong {
+    background-color: red!important;
+}
+
+.disabled {
+    pointer-events: none;
+}
