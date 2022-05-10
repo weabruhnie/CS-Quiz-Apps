@@ -3,8 +3,11 @@ const home_title = home_wrap.querySelector(".home-title h1")
 const start_btn = home_wrap.querySelector(".start-btn")
 const subject_options = home_wrap.querySelector(".subject-options")
 
-const algebra_btn = subject_options.querySelector("#algebra")
-const cs_btn = subject_options.querySelector("#cs")
+const algebra_btn = subject_options.querySelector("#algebra button")
+const cs_btn = subject_options.querySelector("#cs button")
+
+const algebra_hs = document.querySelector("#algebra .highscore")
+const cs_hs = document.querySelector("#cs .highscore")
 
 const rule_wrap = document.querySelector(".rules")
 const rule_continue_btn = rule_wrap.querySelector(".rules-box .continue-btn")
@@ -56,12 +59,20 @@ let userScore = 0; // assigining user score
 
 let topic;  // assigining topic name for later saving
 
+let algHs = localStorage.getItem("algebraHighscore") || 0;
+let csHs = localStorage.getItem("csHighscore") || 0;
+
+algebra_hs.textContent = algHs
+cs_hs.textContent = csHs
+
 algebra_btn.onclick = () => {
-    
+    topic = "algebra"
+    questions = alg_questions
     showRules()
 }
 
 cs_btn.onclick = () => {
+    topic = "cs"
     questions = cs_questions
     showRules() // show rules function below
 }
@@ -170,6 +181,12 @@ function showAnswers() {
 function showResults() {
     result_wrap.classList.remove("hidden")
     scoreResult.textContent = `You scored ${userScore} out of ${questions.length}`
+
+    let oldHighscore = localStorage.getItem(topic + "Highscore") || 0;
+
+    if (userScore > oldHighscore) {
+        localStorage.setItem(topic + "Highscore", userScore)
+    }
 }
 
 return_quiz_btn.onclick = function() {

@@ -186,10 +186,11 @@ function showCorrectAnswer() {
 }
 
 function choicePicked(choiceItem) {
+  clearInterval(countdownInterval);
+
   if (answered) return;
 
   answered = true
-  clearInterval(countdownInterval);
 
   if (choiceItem) {
     let choiceText = choiceItem.querySelector(".choice-text")

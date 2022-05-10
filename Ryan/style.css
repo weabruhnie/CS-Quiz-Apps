@@ -85,6 +85,12 @@ button:hover {
     background-color: rgb(18, 60, 123);
 }
 
+.subject-option-item p {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
 .start-btn {
     top: 50%;
 }
