@@ -12,13 +12,19 @@ const rule_back_btn = rule_wrap.querySelector(".rules-box .back-btn")
 
 const game_wrap = document.querySelector(".game-main-wrap")
 const questionText = game_wrap.querySelector("#questionText")
-const questionMediaImg = game_wrap.querySelector(".media_container")
+const questionMediaImg = game_wrap.querySelector(".media_container img")
 const questionChoices = game_wrap.querySelectorAll(".question-choices .choice-item")
 
 const game_continue_btn = game_wrap.querySelector(".continue-btn")
 
 const timeCount = document.querySelector(".timer .main-var")
 const scoreCount = document.querySelector(".score .main-var")
+
+const result_wrap = document.querySelector(".results-wrap") 
+
+const return_quiz_btn = document.querySelector(".return-home")
+
+const scoreResult = document.querySelector(".score-result")
 
 start_btn.addEventListener("transitionend", showOptions, false)
 
@@ -91,6 +97,11 @@ function makeQuestion() {
     // console.log(qContent)
     questionText.textContent = qContent.q
 
+    console.log(qContent.image)
+    questionMediaImg.src = qContent.image || ""
+
+    game_continue_btn.classList.add("disabled-btn")
+
     questionChoices.forEach(choice => {
         choice.classList.remove("disabled")
         choice.classList.remove("correct")
@@ -109,11 +120,19 @@ function makeQuestion() {
 game_continue_btn.onclick = function() {
     currentQuestion += 1
 
-    if (currentQuestion > questions.length - 1) {
-        console.log("results")
-    } else {
-        makeQuestion()
-    }
+    game_wrap.classList.add("hidden")
+
+    setTimeout(() => {
+
+        if (currentQuestion > questions.length - 1) {
+            console.log("results")
+            showResults()
+        } else {
+            makeQuestion()
+            game_wrap.classList.remove("hidden")
+        }
+        
+    }, 500);
 }
 
 questionChoices.forEach(choice => {
@@ -123,7 +142,11 @@ questionChoices.forEach(choice => {
 });
 
 function optionPicked(pickedChoice) {
-    if (pickedChoice.dataset.index != questions[currentQuestion].answer) {
+    if (pickedChoice.dataset.index == questions[currentQuestion].answer) {
+        userScore++
+        scoreCount.textContent = userScore
+        pickedChoice.classList.add("correct")
+    } else {
         pickedChoice.classList.add("incorrect")
     }
 
@@ -140,4 +163,15 @@ function showAnswers() {
             choice.classList.add("correct")
         }     
     });
+
+    game_continue_btn.classList.remove("disabled-btn")
+}
+
+function showResults() {
+    result_wrap.classList.remove("hidden")
+    scoreResult.textContent = `You scored ${userScore} out of ${questions.length}`
+}
+
+return_quiz_btn.onclick = function() {
+    window.location.reload()
 }

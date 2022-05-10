@@ -13,6 +13,9 @@ const timerText = document.querySelector("#timer_txt");
 const scoreText = document.querySelector("#score_txt");
 const questionTxt = document.querySelector("#question");
 
+const progressTxt = document.querySelector(".progress h3")
+const progressBarFill = document.querySelector(".progress-bar .progress-fill")
+
 const continueQuizBtn = document.querySelector(".continue-quiz");
 
 const choiceButtons = document.querySelectorAll(".choice-container");
@@ -69,6 +72,9 @@ function startQuestion() {
     choice.classList.remove("correct");
     choice.classList.remove("incorrect");
   });
+
+  progressTxt.textContent = "Question " + (currentQuestion + 1) + "/" + (questions.length)
+  progressBarFill.style.width = ((currentQuestion / (questions.length-1))*100) + "%"
 
   continueQuizBtn.style.pointerEvents = "none";
   questionTxt.textContent = questions[currentQuestion].q;
