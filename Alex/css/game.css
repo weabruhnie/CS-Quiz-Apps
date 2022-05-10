@@ -1,5 +1,11 @@
-.game-container {
+.game-container.hide {
     display: none !important;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 .choice-container {
@@ -9,6 +15,18 @@
     font-size: 1.8rem;
     border: 0.1rem solid rgb(86, 165, 235, 0.25);
     background-color: white;
+}
+
+.choice-container.disable {
+    pointer-events: none;
+}
+
+.choice-container.correct {
+    background-color: rgb(87, 255, 146);
+}
+
+.choice-container.incorrect {
+    background-color: rgb(255, 139, 139);
 }
 
 .choice-container:hover {
@@ -26,4 +44,22 @@
 
 .choice-text {
     padding: 1.5rem;
+}
+
+.continue-quiz {
+    margin-top: 1rem
+}
+
+.results-container {
+    text-align: center;
+}
+
+.results-container.hide {
+    display: none!important;
+}
+
+.results-container .score-result-text {
+    text-align: center;
+    font-size: 6rem;
+    margin-bottom: 3rem;
 }
