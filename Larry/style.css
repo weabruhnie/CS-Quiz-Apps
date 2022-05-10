@@ -8,6 +8,58 @@ body{
     box-sizing: border-box;
 }
 
+button {
+    padding: 1rem 2rem;
+    background-color: #607d8b;
+    color: aliceblue;
+    border: 0;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #41555f;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.options-wrapper, .rules-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 400px;
+    width: 600px;
+    background-color: white;
+    margin: 30px auto;
+    border-radius: 8px;
+    padding:25px
+}
+
+.options-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.options-wrapper .option-btn {
+    text-align: center;
+    margin: 2rem;
+}
+
+.rules-wrapper ol {
+    text-align: center;
+    padding-left:0;
+}
+
+.rules-wrapper ol li {
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+
 .quiz-wrapper{
     height: 400px;
     width: 600px;

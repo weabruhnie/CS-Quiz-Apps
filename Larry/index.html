@@ -9,29 +9,71 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="options-wrapper">
+        <h1>Quiz</h1>
+
+        <div class="options-list">
+            <div id="algebra2" class="option-btn">
+                <button>Algebra 2</button>
+                <p>Highscore: <span class="highscore">0</span></p>
+            </div>
+            <div id="cs" class="option-btn">
+                <button>CS</button>
+                <p>Highscore: <span class="highscore">0</span></p>
+            </div>
+        </div>
+    </div> 
+
+    <div class="rules-wrapper hidden">
+        <h1>Rules</h1>
+
+        <ol>
+            <li>
+                <div class="rules-item">
+                    Test
+                </div>
+            </li>
+
+            <li>
+                <div class="rules-item">
+                    Test
+                </div>               
+            </li>
+
+            <li>
+                <div class="rules-item">
+                    Test
+                 </div>
+            </li>
+        </ol>
+
+        <button class="continue-btn">Continue</button> 
+    </div> 
     
-    <div class="quiz-wrapper">       
+    <div class="quiz-wrapper hidden">       
         <div id="questionBox" class="question">
             Sample Question
         </div>
         <div class="options">
             <ul id="ul">
-                <li id="opt1" onclick="button(this)"></li>
-                <li id="opt2" onclick="button(this)"></li>
-                <li id="opt3" onclick="button(this)"></li>
-                <li id="opt4" onclick="button(this)"></li>
+                <li id="opt1" data-index="0" onclick="button(this)"></li>
+                <li id="opt2" data-index="1" onclick="button(this)"></li>
+                <li id="opt3" data-index="2" onclick="button(this)"></li>
+                <li id="opt4" data-index="3" onclick="button(this)"></li>
             </ul>
         </div>
         <div class="score">
             <div class="next">
-                <button id="btnNext" type="button" onclick="next()">
-                  Next
-                </button>
+                <button id="btnNext" type="button" onclick="next()">Next</button>
             </div>
             <div class="score-card">
                 SCORE: <span id="scoreCard">0</span>
             </div>
         </div>
     </div>
+
+    <script src="questions/alg2.js"></script>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
