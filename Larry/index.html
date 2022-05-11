@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
 
+    <script src="https://kit.fontawesome.com/9becc02ff3.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -50,7 +52,10 @@
         <button class="continue-btn">Continue</button> 
     </div> 
     
-    <div class="quiz-wrapper container hidden">       
+    <div class="quiz-wrapper container hidden"> 
+        <div class="timer-bar">
+            <div class="timer-bar-fill"></div>
+        </div> 
         <div id="questionBox" class="question">
             Sample Question
         </div>
@@ -76,10 +81,19 @@
                     TIME LEFT: <span id="timeCard">0</span>
                 </div>
             </div>
+        </div>  
+    </div>
+
+    <div class="container results-wrapper hidden">
+        <div class="results-box">
+            <h1>Congrats! Your final score is:</h1>
+            <h2 class="score-txt">5/10</h2>
+            <button class="return-btn">Return home</button>
         </div>
     </div>
 
     <script src="questions/alg2.js"></script>
+    <script src="questions/cs.js"></script>
 
     <script src="scripts.js"></script>
 </body>
