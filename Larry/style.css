@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: rgb(58, 58, 58);
     margin:0;
     padding:0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,6 +22,13 @@ button:hover {
     cursor: pointer;
 }
 
+.container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
 .hidden {
     display: none!important;
 }
@@ -35,7 +42,7 @@ button:hover {
     height: 400px;
     width: 600px;
     background-color: white;
-    margin: 30px auto;
+    /* margin: 30px auto; */
     border-radius: 8px;
     padding:25px
 }
@@ -64,9 +71,9 @@ button:hover {
     height: 400px;
     width: 600px;
     background-color: white;
-    margin: 30px auto;
+    /* margin: 30px auto; */
     border-radius: 8px;
-    padding:25px
+    padding:25px;
 }
 
 .quiz-wrapper .question{
@@ -104,7 +111,12 @@ button:hover {
     color:white;
     box-shadow: 0px 3px 0px grey;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
+.quiz-wrapper .options ul li:hover {
+    background-color: #455963;
+}
+
 
 .quiz-wrapper .options ul li.correct{
     background-color: green;
@@ -140,14 +152,19 @@ button:hover {
     border-radius: 8px;
 }
 
-.quiz-wrapper .score .score-card{
+.quiz-wrapper .cards-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.quiz-wrapper .score .card-item{
     width: 60%;
     float: left;
     line-height: 40px;
     font-size: 20px;
 }
 
-.quiz-wrapper .score .score-card span{
+.quiz-wrapper .score .card-item span{
     background-color: rgb(12, 88, 29);
     padding: 5px 20px;
     border: none;

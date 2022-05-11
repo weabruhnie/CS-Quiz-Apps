@@ -1,25 +1,37 @@
-var question= document.getElementById('question');
-var quizContainer= document.getElementById('quiz-container');
-var scorecard= document.getElementById('scorecard');
-var options = document.querySelectorAll('.option');
-var next= document.querySelector('.next');
-var points= document.getElementById('score');
-var span= document.querySelectorAll('span');
+const question= document.getElementById('question');
+const quizContainer= document.getElementById('quiz-container');
+const scorecard= document.getElementById('scorecard');
+const options = document.querySelectorAll('.option');
+const next= document.querySelector('.next');
+const points= document.getElementById('score');
+const span= document.querySelectorAll('span');
 
-var subjectContainer = document.querySelector(".subject-container")
-var rulesContainer = document.querySelector(".rules-container")
+const subjectContainer = document.querySelector(".subject-container")
+const rulesContainer = document.querySelector(".rules-container")
 
-var startQuizBtn = document.querySelector("#start")
-var returnBtn = document.querySelector("#return-home")
+const startQuizBtn = document.querySelector("#start")
+const returnBtn = document.querySelector("#return-home")
 
-var buttons = document.querySelectorAll(".subject-container .option-item")
+const buttons = document.querySelectorAll(".subject-container .option-item")
 
-var timerText = document.querySelector("#timerTxt")
-var scoreText = document.querySelector("#scoreTxt")
+const quitButton = document.querySelector(".quit")
+
+const backButton = document.querySelector(".back-btn")
+
+const timerText = document.querySelector("#timerTxt")
+const scoreText = document.querySelector("#scoreTxt")
+
+const timerFill = document.querySelector(".timer-bar-fill")
+
+const scoreTitle = document.querySelector("#score-title")
 
 let questionBank = [];
 
 let subject;
+
+backButton.onclick = () => {
+    window.location.reload()
+}
 
 buttons.forEach(element => {
     let highscoreData = localStorage.getItem(element.id + "HS") || 0
@@ -63,10 +75,21 @@ function timerFunc() {
     timeLeft-=1
     timerText.innerHTML = "Time Left: " + timeLeft
 
+    timerFill.style.width = ((timeLeft / 15)*100) + "%"
+
+    if (timeLeft <= 10 && timeLeft > 5) {
+        timerFill.classList.add("middle")
+    } else if (timeLeft <= 5)  {
+        timerFill.classList.remove("middle")
+        timerFill.classList.add("death")
+    }
+
     if (timeLeft <= 0) {
         getAnswer()
     }
 }
+
+let timerInt;
 
 //function to display questions
 function displayQuestion(){
@@ -78,13 +101,17 @@ function displayQuestion(){
 
     timeLeft = 15;
     timerText.innerHTML = "Time Left: " + timeLeft
+    timerFill.style.width = ((timeLeft / 15)*100) + "%"
+
+    timerFill.classList.remove("middle")
+    timerFill.classList.remove("death")
 
     timerInt = setInterval(timerFunc, 1000)
 
     for(var a=0;a<span.length;a++){
         span[a].style.background='none';
     }
-    question.innerHTML= 'Question'+(i+1)+': '+questionBank[i].question;
+    question.innerHTML= 'Question '+(i+1)+': '+questionBank[i].question;
     options[0].innerHTML= questionBank[i].a;
     options[1].innerHTML= questionBank[i].b;
     options[2].innerHTML= questionBank[i].c;
@@ -135,9 +162,15 @@ function nextQuestion(){
         displayQuestion();
     }
     else{
-        points.innerHTML= score+ '/'+ questionBank.length;
+        points.innerHTML= score + '/'+ questionBank.length;
         quizContainer.style.display= 'none';
         scoreboard.style.display= 'block'
+
+        if (score <= 2) {
+            scoreTitle.innerHTML = "Ho ho ho"
+        } else if (score >= 3) {
+            scoreTitle.innerHTML = "Ben?"
+        }
 
         let highscoreData = localStorage.getItem(subject + "HS") || 0
         if (score > highscoreData) {
@@ -149,7 +182,6 @@ function nextQuestion(){
 //click events to next button
 next.addEventListener('click',nextQuestion);
 
-//Back to Quiz button event
-function backToQuiz(){
+quitButton.onclick = () => {
     window.location.reload();
 }

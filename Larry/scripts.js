@@ -26,6 +26,8 @@ const cs_hsTxt = document.querySelector("#cs .highscore")
 let index = 0
 let score = 0
 
+let timeLeft = 15;
+
 let questions = [];
 let topic;
 

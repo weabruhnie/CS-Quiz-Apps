@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="options-wrapper">
+    <div class="options-wrapper container">
         <h1>Quiz</h1>
 
         <div class="options-list">
@@ -24,7 +24,7 @@
         </div>
     </div> 
 
-    <div class="rules-wrapper hidden">
+    <div class="rules-wrapper container hidden">
         <h1>Rules</h1>
 
         <ol>
@@ -50,7 +50,7 @@
         <button class="continue-btn">Continue</button> 
     </div> 
     
-    <div class="quiz-wrapper hidden">       
+    <div class="quiz-wrapper container hidden">       
         <div id="questionBox" class="question">
             Sample Question
         </div>
@@ -66,8 +66,15 @@
             <div class="next">
                 <button id="btnNext" type="button" onclick="next()">Next</button>
             </div>
-            <div class="score-card">
-                SCORE: <span id="scoreCard">0</span>
+
+            <div class="cards-list">
+                <div class="card-item score-card">
+                    SCORE: <span id="scoreCard">0</span>
+                </div>
+    
+                <div class="card-item timer-card">
+                    TIME LEFT: <span id="timeCard">0</span>
+                </div>
             </div>
         </div>
     </div>
